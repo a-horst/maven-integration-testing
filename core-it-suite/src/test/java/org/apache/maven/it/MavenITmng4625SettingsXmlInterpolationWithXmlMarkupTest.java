@@ -51,8 +51,8 @@ public class MavenITmng4625SettingsXmlInterpolationWithXmlMarkupTest
         Verifier verifier = newVerifier( testDir.getAbsolutePath() );
         verifier.setAutoclean( false );
         verifier.deleteDirectory( "target" );
-        verifier.setSystemProperty( "test.prop", "&x=y<>" );
-        verifier.addCliOption( "--settings" );
+        verifier.setSystemProperty( "test.prop", "\"&x=y<>\"" );
+        verifier.addCliOption( "--settings" );        
         verifier.addCliOption( "settings.xml" );
         verifier.executeGoal( "validate" );
         verifier.verifyErrorFreeLog();
